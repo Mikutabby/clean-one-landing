@@ -1,0 +1,126 @@
+{
+  "brand": {
+    "name": "CLEAN//ONE",
+    "tagline": "Limpieza Profesional para Tu Tecnología",
+    "description": "El kit de limpieza profesional que mantiene todos tus dispositivos impecables. Pantallas, teclados, audífonos, cámaras. Todo lo que necesitas en un solo kit compacto y profesional."
+  },
+  "colors": {
+    "primary": "#00d4ff",
+    "secondary": "#7c3aed",
+    "background": "#0a0a0f",
+    "backgroundSecondary": "#12121a",
+    "text": "#ffffff",
+    "textSecondary": "#a0a0b0"
+  },
+  "products": [
+    {
+      "name": "Essential Kit",
+      "variant": "7-en-1",
+      "price": 67,
+      "currency": "USD",
+      "badge": "Popular",
+      "features": [
+        "Escoba de precisión",
+        "Spray de limpieza (30ml)",
+        "2x Microfibra premium",
+        "Herramienta 3-en-1",
+        "Estuche compacto",
+        "Guía de inicio rápido"
+      ],
+      "note": "Envío gratis a todo el país"
+    },
+    {
+      "name": "Pro Kit",
+      "variant": "20-en-1",
+      "price": 99,
+      "currency": "USD",
+      "badge": "Más Vendido",
+      "featured": true,
+      "features": [
+        "Todo del Essential Kit",
+        "Cepillo para lentes",
+        "Herramienta para audífonos",
+        "Paño de secado",
+        "4x Herramientas de precisión",
+        "Estuche premium organizado",
+        "Acceso a guías de limpieza",
+        "Soporte prioritario"
+      ],
+      "note": "Envío gratis + regalo sorpresa"
+    }
+  ],
+  "reviews": [
+    {
+      "name": "María C.",
+      "role": "Diseñadora Gráfica",
+      "text": "Increíble. Mi laptop se ve como nueva después de meses de uso. Las herramientas son de excelente calidad y el spray no deja marcas.",
+      "rating": 5
+    },
+    {
+      "name": "Luis R.",
+      "role": "Desarrollador",
+      "text": "Lo compré para limpiar mis audífonos y terminé usándolo para todo. El kit es super completo y el estuche queda perfecto para viajar.",
+      "rating": 5
+    },
+    {
+      "name": "Andrés P.",
+      "role": "Fotógrafo Profesional",
+      "text": "Como fotógrafo, necesito mis lentes impecables. Este kit es lo mejor que me ha pasado. La calidad es insuperable.",
+      "rating": 5
+    },
+    {
+      "name": "Diana G.",
+      "role": "Gamer Profesional",
+      "text": "Mi teclado de gaming estaba horrible. Con este kit quedó como recién comprado. 100% recomendado para gamers.",
+      "rating": 5
+    },
+    {
+      "name": "Carlos M.",
+      "role": "Gerente de TI",
+      "text": "Lo uso en mi oficina y todos preguntan qué es. El kit Pro vale cada centavo. Calidad profesional de verdad.",
+      "rating": 5
+    },
+    {
+      "name": "Valentina S.",
+      "role": "Abogada",
+      "text": "Perfecto para mantener mis dispositivos de trabajo limpios. El spray no huele fuerte y las microfibras son súper suaves.",
+      "rating": 5
+    }
+  ],
+  "faq": [
+    {
+      "question": "¿Es seguro para todos mis dispositivos?",
+      "answer": "Sí, absolutamente. Todas nuestras herramientas y fórmulas están diseñadas específicamente para ser seguras en todo tipo de dispositivos electrónicos: laptops, tablets, smartphones, audífonos, cámaras, consolas de videojuegos, y más. Nuestra fórmula no contiene alcohol, amoníaco ni peróxido."
+    },
+    {
+      "question": "¿Cuánto dura el kit?",
+      "answer": "El spray de limpieza de 30ml dura aproximadamente 3 meses de uso regular. Las herramientas (cepillos, microfibras, etc.) están diseñadas para durar años con el cuidado adecuado. El estuche está hecho de materiales resistentes que protegen tus herramientas por mucho tiempo."
+    },
+    {
+      "question": "¿Puedo usarlo en mi laptop, tablet y audífonos?",
+      "answer": "¡Por supuesto! Esa es la belleza de CLEAN//ONE. Está diseñado para ser versátil y funcionar con prácticamente cualquier dispositivo electrónico. Desde tu laptop hasta tus audífonos más delicados, pasando por tablets, smartphones, cámaras, y más."
+    },
+    {
+      "question": "¿Qué incluye exactamente el kit?",
+      "answer": "El Essential Kit (7-en-1) incluye: escoba de precisión, spray de limpieza 30ml, 2 microfibras premium, herramienta 3-en-1, estuche compacto, y guía de inicio. El Pro Kit (20-en-1) agrega: cepillo para lentes, herramienta para audífonos, paño de secado, 4 herramientas de precisión, estuche premium organizado, acceso a guías de limpieza, y soporte prioritario."
+    },
+    {
+      "question": "¿Tienen garantía?",
+      "answer": "Sí, ofrecemos una garantía de satisfacción de 30 días. Si por alguna razón no estás completamente satisfecho con tu CLEAN//ONE, simplemente contáctanos y te devolveremos el dinero completo. Sin preguntas, sin complicaciones. También ofreceremos garantía de por vida para defectos de fabricación próximamente."
+    },
+    {
+      "question": "¿Cuánto tarda el envío?",
+      "answer": "El envío es GRATIS a todo el país. Los pedidos se procesan dentro de 24-48 horas y el tiempo de entrega estándar es de 3-7 días hábiles dependiendo de tu ubicación. Recibirás un código de rastreo por email para que puedas seguir tu pedido en tiempo real."
+    }
+  ],
+  "guarantee": {
+    "days": 30,
+    "text": "Garantía de Satisfacción 30 Días",
+    "description": "Si no estás satisfecho, te devolvemos tu dinero. Sin preguntas."
+  },
+  "social": {
+    "instagram": "#",
+    "twitter": "#",
+    "tiktok": "#"
+  }
+}
