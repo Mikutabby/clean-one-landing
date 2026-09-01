@@ -387,32 +387,30 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
 }
 
-.product-placeholder {
-    width: 300px;
-    height: 300px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xl);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    box-shadow: var(--shadow-lg);
+/* Hero Logo */
+.hero-logo {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.3));
+    animation: logoFloat 6s ease-in-out infinite;
 }
 
-.placeholder-icon {
-    font-size: 2rem;
-    font-weight: 900;
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
-.placeholder-text {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
+/* Navbar Logo */
+.nav-logo-img {
+    height: 40px;
+    width: auto;
+}
+
+/* Footer Logo */
+.footer-logo-img {
+    height: 50px;
+    width: auto;
 }
 
 .floating-tools {
