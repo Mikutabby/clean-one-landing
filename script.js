@@ -1,6 +1,6 @@
 /* ============================================
    CLEAN//ONE - Premium Interactions 2026
-   Scroll-Driven + Micro-Interactions
+   Scroll-Driven + Micro-Interactions + Premium Features
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -14,7 +14,281 @@ document.addEventListener('DOMContentLoaded', function() {
     initCounterAnimation();
     initMagneticButtons();
     initRippleEffect();
+    
+    // New premium features
+    initScrollProgress();
+    initCursorTrail();
+    initParticles();
+    initSocialProof();
+    initCountdown();
+    initStockCounter();
+    initStickyCta();
 });
+
+/* ============================================
+   SCROLL PROGRESS BAR
+   ============================================ */
+function initScrollProgress() {
+    const progressBar = document.getElementById('scrollProgress');
+    if (!progressBar) return;
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        
+        progressBar.style.width = scrollPercent + '%';
+    });
+}
+
+/* ============================================
+   CURSOR TRAIL EFFECT
+   ============================================ */
+function initCursorTrail() {
+    const cursorTrail = document.getElementById('cursorTrail');
+    if (!cursorTrail || window.innerWidth < 768) return;
+    
+    let mouseX = 0, mouseY = 0;
+    let trailX = 0, trailY = 0;
+    
+    document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    // Smooth cursor follow
+    function animateCursor() {
+        trailX += (mouseX - trailX) * 0.15;
+        trailY += (mouseY - trailY) * 0.15;
+        
+        cursorTrail.style.left = trailX + 'px';
+        cursorTrail.style.top = trailY + 'px';
+        
+        requestAnimationFrame(animateCursor);
+    }
+    
+    animateCursor();
+    
+    // Hover effect on interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .feature-card, .problem-card, .review-card');
+    
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursorTrail.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => cursorTrail.classList.remove('hovering'));
+    });
+}
+
+/* ============================================
+   PARTICLES BACKGROUND
+   ============================================ */
+function initParticles() {
+    const container = document.getElementById('particles');
+    if (!container) return;
+    
+    const particleCount = window.innerWidth < 768 ? 15 : 30;
+    
+    for (let i = 0; i < particleCount; i++) {
+        createParticle(container);
+    }
+    
+    // Continuously create new particles
+    setInterval(() => {
+        if (container.children.length < particleCount) {
+            createParticle(container);
+        }
+    }, 2000);
+}
+
+function createParticle(container) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    
+    const size = Math.random() * 4 + 2;
+    const left = Math.random() * 100;
+    const duration = Math.random() * 20 + 15;
+    const delay = Math.random() * 10;
+    
+    particle.style.width = size + 'px';
+    particle.style.height = size + 'px';
+    particle.style.left = left + '%';
+    particle.style.animationDuration = duration + 's';
+    particle.style.animationDelay = delay + 's';
+    
+    container.appendChild(particle);
+    
+    // Remove particle after animation
+    setTimeout(() => {
+        particle.remove();
+    }, (duration + delay) * 1000);
+}
+
+/* ============================================
+   SOCIAL PROOF - Live Viewers + Recent Purchases
+   ============================================ */
+function initSocialProof() {
+    const socialBar = document.getElementById('socialProofBar');
+    if (!socialBar) return;
+    
+    // Show social proof bar after scrolling
+    let lastScrollY = 0;
+    
+    window.addEventListener('scroll', function() {
+        const scrollY = window.pageYOffset;
+        
+        if (scrollY > 300) {
+            socialBar.classList.add('visible');
+        } else {
+            socialBar.classList.remove('visible');
+        }
+        
+        lastScrollY = scrollY;
+    });
+    
+    // Simulate live viewer count updates
+    initLiveViewers();
+    
+    // Simulate recent purchases
+    initRecentPurchases();
+}
+
+function initLiveViewers() {
+    const viewerCount = document.getElementById('viewerCount');
+    if (!viewerCount) return;
+    
+    let currentCount = Math.floor(Math.random() * 30) + 35; // 35-65
+    
+    setInterval(() => {
+        // Random fluctuation between -3 and +3
+        const change = Math.floor(Math.random() * 7) - 3;
+        currentCount = Math.max(20, Math.min(100, currentCount + change));
+        viewerCount.textContent = currentCount;
+    }, 5000);
+}
+
+function initRecentPurchases() {
+    const purchaseText = document.getElementById('purchaseText');
+    if (!purchaseText) return;
+    
+    const purchases = [
+        { name: 'Carlos', city: 'Bogotá', time: '3 minutos' },
+        { name: 'María', city: 'Medellín', time: '5 minutos' },
+        { name: 'Andrés', city: 'Cali', time: '7 minutos' },
+        { name: 'Valentina', city: 'Barranquilla', time: '10 minutos' },
+        { name: 'Luis', city: 'Cartagena', time: '12 minutos' },
+        { name: 'Diana', city: 'Bucaramanga', time: '15 minutos' },
+        { name: 'Santiago', city: 'Pereira', time: '18 minutos' },
+        { name: 'Camila', city: 'Santa Marta', time: '20 minutos' },
+        { name: 'Diego', city: 'Cúcuta', time: '22 minutos' },
+        { name: 'Laura', city: 'Ibagué', time: '25 minutos' }
+    ];
+    
+    let currentIndex = 0;
+    
+    setInterval(() => {
+        const purchase = purchases[currentIndex];
+        purchaseText.textContent = `${purchase.name} de ${purchase.city} compró hace ${purchase.time}`;
+        
+        // Animate text change
+        purchaseText.style.opacity = '0';
+        setTimeout(() => {
+            purchaseText.style.opacity = '1';
+        }, 200);
+        
+        currentIndex = (currentIndex + 1) % purchases.length;
+    }, 8000);
+}
+
+/* ============================================
+   COUNTDOWN TIMER
+   ============================================ */
+function initCountdown() {
+    // Set countdown end date (7 days from now)
+    const now = new Date();
+    const endDate = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+    
+    function updateCountdown() {
+        const currentTime = new Date();
+        const diff = endDate - currentTime;
+        
+        if (diff <= 0) {
+            // Reset countdown
+            endDate.setTime(currentTime.getTime() + 7 * 24 * 60 * 60 * 1000);
+            return;
+        }
+        
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        const daysEl = document.getElementById('countdownDays');
+        const hoursEl = document.getElementById('countdownHours');
+        const minutesEl = document.getElementById('countdownMinutes');
+        const secondsEl = document.getElementById('countdownSeconds');
+        
+        if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+        
+        // Add urgency color when less than 1 day
+        if (days === 0) {
+            document.querySelectorAll('.countdown-value').forEach(el => {
+                el.style.color = '#ef4444';
+            });
+        }
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
+
+/* ============================================
+   STOCK COUNTER
+   ============================================ */
+function initStockCounter() {
+    const stockNumber = document.getElementById('stockNumber');
+    const stockBarFill = document.getElementById('stockBarFill');
+    if (!stockNumber || !stockBarFill) return;
+    
+    const initialStock = 150;
+    const reservedStock = Math.floor(Math.random() * 20) + 10; // 10-30 reserved
+    let currentStock = initialStock - reservedStock;
+    
+    // Update stock bar
+    function updateStockBar() {
+        const percentage = (currentStock / initialStock) * 100;
+        stockBarFill.style.width = percentage + '%';
+        
+        // Change color based on stock level
+        if (percentage < 20) {
+            stockBarFill.style.background = '#ef4444';
+        } else if (percentage < 50) {
+            stockBarFill.style.background = '#f59e0b';
+        } else {
+            stockBarFill.style.background = '#10b981';
+        }
+    }
+    
+    updateStockBar();
+    stockNumber.textContent = currentStock;
+    
+    // Simulate stock decreasing
+    setInterval(() => {
+        if (currentStock > 5) {
+            const decrease = Math.random() > 0.7 ? 1 : 0;
+            currentStock -= decrease;
+            stockNumber.textContent = currentStock;
+            updateStockBar();
+            
+            // Animate stock number
+            stockNumber.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                stockNumber.style.transform = 'scale(1)';
+            }, 200);
+        }
+    }, 30000); // Every 30 seconds
+}
 
 /* ============================================
    NAVBAR - Glassmorphism + Scroll Effect
@@ -91,7 +365,8 @@ function initScrollAnimations() {
         const children = section.querySelectorAll(
             '.section-label, .section-title, .problem-card, .feature-card, ' +
             '.product-card, .review-card, .faq-item, .comparison-row, ' +
-            '.feature-item, .stat-number, .stat-text'
+            '.feature-item, .stat-number, .stat-text, .product-details, ' +
+            '.product-visual, .countdown-content'
         );
         children.forEach((child, index) => {
             child.classList.add('scroll-reveal');
@@ -154,7 +429,7 @@ function initSmoothScroll() {
    ============================================ */
 function initMicroInteractions() {
     // Card tilt effect
-    const cards = document.querySelectorAll('.problem-card, .feature-card, .product-card, .review-card');
+    const cards = document.querySelectorAll('.problem-card, .feature-card, .review-card');
     
     cards.forEach(card => {
         card.addEventListener('mouseenter', function(e) {
@@ -243,7 +518,7 @@ function animateCounter(element, start, end, duration) {
         const progress = Math.min(elapsed / duration, 1);
         
         // Spring easing
-        const easeOutElastic = 1 - Math.pow(2, -10 * progress) * Math.cos((progress * 10 - 0.75) * (2 * Math.PI) / 3);
+        const easeOutElastic = 1 - Math.pow(2, -10 * progress) * Math.cos((progress * 10 - 0.75) * (2 * Math.PI) / 1);
         const current = Math.round(start + (end - start) * easeOutElastic);
         
         element.textContent = current + '%';
@@ -347,51 +622,22 @@ document.querySelectorAll('.btn-primary').forEach(btn => {
    STICKY CTA FOR MOBILE
    ============================================ */
 function initStickyCta() {
-    if (window.innerWidth > 768) return;
-    
-    const stickyCta = document.createElement('div');
-    stickyCta.className = 'sticky-cta';
-    stickyCta.innerHTML = `
-        <a href="#buy" class="btn btn-primary btn-full" style="width: 100%; justify-content: center; border-radius: 0; padding: 18px;">
-            Compra Ahora - Envío Gratis
-        </a>
-    `;
-    stickyCta.style.cssText = `
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 999;
-        background: var(--bg-primary);
-        border-top: 1px solid var(--border-subtle);
-        display: none;
-        transform: translateY(100%);
-        transition: transform 0.3s ease;
-    `;
-    
-    document.body.appendChild(stickyCta);
+    const stickyCta = document.getElementById('stickyCta');
+    if (!stickyCta) return;
     
     const buySection = document.getElementById('buy');
     if (!buySection) return;
     
     window.addEventListener('scroll', function() {
         const buySectionTop = buySection.getBoundingClientRect().top;
+        
         if (buySectionTop > window.innerHeight) {
-            stickyCta.style.display = 'block';
-            requestAnimationFrame(() => {
-                stickyCta.style.transform = 'translateY(0)';
-            });
+            stickyCta.classList.add('visible');
         } else {
-            stickyCta.style.transform = 'translateY(100%)';
-            setTimeout(() => {
-                stickyCta.style.display = 'none';
-            }, 300);
+            stickyCta.classList.remove('visible');
         }
     });
 }
-
-// Initialize sticky CTA
-initStickyCta();
 
 /* ============================================
    LOADING STATE

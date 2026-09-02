@@ -12,43 +12,35 @@
     "text": "#ffffff",
     "textSecondary": "#a0a0b0"
   },
-  "products": [
-    {
-      "name": "Essential Kit",
-      "variant": "7-en-1",
-      "price": 67,
-      "currency": "USD",
-      "badge": "Popular",
-      "features": [
-        "Escoba de precisión",
-        "Spray de limpieza (30ml)",
-        "2x Microfibra premium",
-        "Herramienta 3-en-1",
-        "Estuche compacto",
-        "Guía de inicio rápido"
-      ],
-      "note": "Envío gratis a todo el país"
-    },
-    {
-      "name": "Pro Kit",
-      "variant": "20-en-1",
-      "price": 99,
-      "currency": "USD",
-      "badge": "Más Vendido",
-      "featured": true,
-      "features": [
-        "Todo del Essential Kit",
-        "Cepillo para lentes",
-        "Herramienta para audífonos",
-        "Paño de secado",
-        "4x Herramientas de precisión",
-        "Estuche premium organizado",
-        "Acceso a guías de limpieza",
-        "Soporte prioritario"
-      ],
-      "note": "Envío gratis + regalo sorpresa"
+  "product": {
+    "name": "CLEAN//ONE Kit",
+    "variant": "7-en-1",
+    "price": 19900,
+    "currency": "COP",
+    "originalPrice": 29900,
+    "discount": 33,
+    "features": [
+      "Escoba de precisión",
+      "Spray de limpieza (30ml)",
+      "2x Microfibra premium",
+      "Herramienta 3-en-1",
+      "Estuche compacto",
+      "Guía de inicio rápido"
+    ],
+    "badge": "Oferta de Lanzamiento",
+    "note": "Envío gratis a todo el país",
+    "stock": {
+      "initial": 150,
+      "reserved": 0
     }
-  ],
+  },
+  "urgency": {
+    "countdownEnd": "2026-09-07T23:59:59",
+    "countdownLabel": "Oferta termina en",
+    "showStockCounter": true,
+    "showLiveViewers": true,
+    "showRecentPurchases": true
+  },
   "reviews": [
     {
       "name": "María C.",
@@ -77,7 +69,7 @@
     {
       "name": "Carlos M.",
       "role": "Gerente de TI",
-      "text": "Lo uso en mi oficina y todos preguntan qué es. El kit Pro vale cada centavo. Calidad profesional de verdad.",
+      "text": "Lo uso en mi oficina y todos preguntan qué es. Vale cada centavo. Calidad profesional de verdad.",
       "rating": 5
     },
     {
@@ -102,15 +94,19 @@
     },
     {
       "question": "¿Qué incluye exactamente el kit?",
-      "answer": "El Essential Kit (7-en-1) incluye: escoba de precisión, spray de limpieza 30ml, 2 microfibras premium, herramienta 3-en-1, estuche compacto, y guía de inicio. El Pro Kit (20-en-1) agrega: cepillo para lentes, herramienta para audífonos, paño de secado, 4 herramientas de precisión, estuche premium organizado, acceso a guías de limpieza, y soporte prioritario."
+      "answer": "El kit 7-en-1 incluye: escoba de precisión, spray de limpieza 30ml, 2 microfibras premium, herramienta 3-en-1, estuche compacto, y guía de inicio. Todo lo que necesitas para mantener tus dispositivos impecables."
     },
     {
       "question": "¿Tienen garantía?",
-      "answer": "Sí, ofrecemos una garantía de satisfacción de 30 días. Si por alguna razón no estás completamente satisfecho con tu CLEAN//ONE, simplemente contáctanos y te devolveremos el dinero completo. Sin preguntas, sin complicaciones. También ofreceremos garantía de por vida para defectos de fabricación próximamente."
+      "answer": "Sí, ofrecemos una garantía de satisfacción de 30 días. Si por alguna razón no estás completamente satisfecho con tu CLEAN//ONE, simplemente contáctanos y te devolveremos el dinero completo. Sin preguntas, sin complicaciones."
     },
     {
       "question": "¿Cuánto tarda el envío?",
       "answer": "El envío es GRATIS a todo el país. Los pedidos se procesan dentro de 24-48 horas y el tiempo de entrega estándar es de 3-7 días hábiles dependiendo de tu ubicación. Recibirás un código de rastreo por email para que puedas seguir tu pedido en tiempo real."
+    },
+    {
+      "question": "¿Cómo puedo pagar?",
+      "answer": "Aceptamos todas las tarjetas de crédito y débito (Visa, Mastercard, American Express), PSE, Nequi, Daviplata, y transferencia bancaria. Todos los pagos son 100% seguros con encriptación SSL."
     }
   ],
   "guarantee": {

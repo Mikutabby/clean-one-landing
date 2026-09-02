@@ -12,6 +12,15 @@
     <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body>
+    <!-- SCROLL PROGRESS BAR -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- CURSOR TRAIL -->
+    <div class="cursor-trail" id="cursorTrail"></div>
+    
+    <!-- PARTICLES BACKGROUND -->
+    <div class="particles-container" id="particles"></div>
+    
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -20,13 +29,28 @@
             </a>
             <div class="nav-links">
                 <a href="#features">Características</a>
-                <a href="#products">Productos</a>
+                <a href="#product">Producto</a>
                 <a href="#reviews">Reseñas</a>
                 <a href="#faq">FAQ</a>
             </div>
             <a href="#buy" class="nav-cta">Compra Ahora</a>
         </div>
     </nav>
+
+    <!-- LIVE SOCIAL PROOF BAR -->
+    <div class="social-proof-bar" id="socialProofBar">
+        <div class="social-proof-content">
+            <div class="live-viewers" id="liveViewers">
+                <span class="pulse-dot"></span>
+                <span><strong id="viewerCount">47</strong> personas viendo esto ahora</span>
+            </div>
+            <div class="social-proof-divider"></div>
+            <div class="recent-purchase" id="recentPurchase">
+                <span class="purchase-icon">🛒</span>
+                <span id="purchaseText">Carlos de Bogotá compró hace 3 minutos</span>
+            </div>
+        </div>
+    </div>
 
     <!-- HERO SECTION -->
     <section class="hero" id="hero">
@@ -51,7 +75,7 @@
                 </p>
                 <div class="hero-cta-group">
                     <a href="#buy" class="btn-primary btn-large">
-                        <span>Compra Ahora</span>
+                        <span>Compra Ahora - $19.900</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
@@ -104,6 +128,47 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 5v14M19 12l-7 7-7-7"/>
             </svg>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN SECTION -->
+    <section class="countdown-section" id="countdown">
+        <div class="container">
+            <div class="countdown-content">
+                <div class="countdown-badge">
+                    <span class="countdown-badge-icon">🔥</span>
+                    <span>Oferta de Lanzamiento - 33% OFF</span>
+                </div>
+                <h2 class="countdown-title">La oferta termina en</h2>
+                <div class="countdown-timer" id="countdownTimer">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="countdownDays">00</span>
+                        <span class="countdown-label">Días</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="countdownHours">00</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="countdownMinutes">00</span>
+                        <span class="countdown-label">Min</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="countdownSeconds">00</span>
+                        <span class="countdown-label">Seg</span>
+                    </div>
+                </div>
+                <div class="stock-counter" id="stockCounter">
+                    <span class="stock-icon">📦</span>
+                    <span>Solo quedan <strong id="stockNumber">23</strong> unidades en stock</span>
+                    <div class="stock-bar">
+                        <div class="stock-bar-fill" id="stockBarFill"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -228,25 +293,35 @@
         </div>
     </section>
 
-    <!-- PRODUCTS SECTION -->
-    <section class="products-section" id="products">
+    <!-- PRODUCT SECTION -->
+    <section class="product-section" id="product">
         <div class="container">
-            <span class="section-label">Productos</span>
-            <h2 class="section-title">Elige tu Kit Perfecto</h2>
-            <div class="products-grid">
-                <!-- Essential Kit -->
-                <div class="product-card">
-                    <div class="product-card-badge">Popular</div>
-                    <div class="product-card-header">
-                        <h3>Essential Kit</h3>
-                        <div class="product-card-subtitle">7-en-1</div>
+            <div class="product-showcase-section">
+                <div class="product-visual">
+                    <div class="product-image-wrapper">
+                        <div class="product-glow-large"></div>
+                        <img src="images/logo.png" alt="CLEAN//ONE Kit" class="product-main-image">
+                        <div class="floating-badge">7-en-1</div>
                     </div>
-                    <div class="product-card-price">
-                        <span class="price-currency">$</span>
-                        <span class="price-amount">67</span>
-                        <span class="price-period">USD</span>
+                </div>
+                <div class="product-details">
+                    <span class="section-label">Kit de Limpieza</span>
+                    <h2 class="product-title">CLEAN//ONE Kit</h2>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.9/5 - 500+ reseñas</span>
                     </div>
-                    <ul class="product-card-features">
+                    <div class="product-price">
+                        <span class="price-original">$29.900</span>
+                        <span class="price-current">$19.900</span>
+                        <span class="price-currency">COP</span>
+                        <span class="price-discount">-33%</span>
+                    </div>
+                    <p class="product-description">
+                        El kit completo de limpieza profesional para todos tus dispositivos tecnológicos.
+                        Incluye 7 herramientas especializadas en un estuche compacto y organizado.
+                    </p>
+                    <ul class="product-includes">
                         <li>✓ Escoba de precisión</li>
                         <li>✓ Spray de limpieza (30ml)</li>
                         <li>✓ 2x Microfibra premium</li>
@@ -254,41 +329,26 @@
                         <li>✓ Estuche compacto</li>
                         <li>✓ Guía de inicio rápido</li>
                     </ul>
-                    <a href="#buy" class="btn-primary btn-full">Compra Ahora</a>
-                    <div class="product-card-note">Envío gratis a todo el país</div>
-                </div>
-
-                <!-- Pro Kit -->
-                <div class="product-card product-card-featured">
-                    <div class="product-card-badge badge-featured">Más Vendido</div>
-                    <div class="product-card-header">
-                        <h3>Pro Kit</h3>
-                        <div class="product-card-subtitle">20-en-1</div>
+                    <div class="product-badges">
+                        <div class="badge-item">
+                            <span class="badge-icon">🚚</span>
+                            <span>Envío Gratis</span>
+                        </div>
+                        <div class="badge-item">
+                            <span class="badge-icon">🛡️</span>
+                            <span>Garantía 30 Días</span>
+                        </div>
+                        <div class="badge-item">
+                            <span class="badge-icon">🔒</span>
+                            <span>Pago Seguro</span>
+                        </div>
                     </div>
-                    <div class="product-card-price">
-                        <span class="price-currency">$</span>
-                        <span class="price-amount">99</span>
-                        <span class="price-period">USD</span>
-                    </div>
-                    <ul class="product-card-features">
-                        <li>✓ Todo del Essential Kit</li>
-                        <li>✓ Cepillo para lentes</li>
-                        <li>✓ Herramienta para audífonos</li>
-                        <li>✓ Paño de secado</li>
-                        <li>✓ 4x Herramientas de precisión</li>
-                        <li>✓ Estuche premium organizado</li>
-                        <li>✓ Acceso a guías de limpieza</li>
-                        <li>✓ Soporte prioritario</li>
-                    </ul>
-                    <a href="#buy" class="btn-primary btn-full btn-glow">Compra Ahora</a>
-                    <div class="product-card-note">Envío gratis + regalo sorpresa</div>
-                </div>
-            </div>
-            <div class="products-guarantee">
-                <div class="guarantee-icon">🛡️</div>
-                <div class="guarantee-text">
-                    <strong>Garantía de Satisfacción 30 Días</strong>
-                    <span>Si no estás satisfecho, te devolvemos tu dinero. Sin preguntas.</span>
+                    <a href="#buy" class="btn-primary btn-large btn-full">
+                        <span>Compra Ahora - $19.900</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -398,7 +458,7 @@
                 </div>
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Lo uso en mi oficina y todos preguntan qué es. El kit Pro vale cada centavo. Calidad profesional de verdad."</p>
+                    <p class="review-text">"Lo uso en mi oficina y todos preguntan qué es. Vale cada centavo. Calidad profesional de verdad."</p>
                     <div class="review-author">
                         <div class="author-avatar">CM</div>
                         <div class="author-info">
@@ -469,7 +529,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>El Essential Kit (7-en-1) incluye: escoba de precisión, spray de limpieza 30ml, 2 microfibras premium, herramienta 3-en-1, estuche compacto, y guía de inicio. El Pro Kit (20-en-1) agrega: cepillo para lentes, herramienta para audífonos, paño de secado, 4 herramientas de precisión, estuche premium organizado, acceso a guías de limpieza, y soporte prioritario.</p>
+                        <p>El kit 7-en-1 incluye: escoba de precisión, spray de limpieza 30ml, 2 microfibras premium, herramienta 3-en-1, estuche compacto, y guía de inicio. Todo lo que necesitas para mantener tus dispositivos impecables.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -480,7 +540,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Sí, ofrecemos una garantía de satisfacción de 30 días. Si por alguna razón no estás completamente satisfecho con tu CLEAN//ONE, simplemente contáctanos y te devolveremos el dinero completo. Sin preguntas, sin complicaciones. También ofreceremos garantía de por vida para defectos de fabricación próximamente.</p>
+                        <p>Sí, ofrecemos una garantía de satisfacción de 30 días. Si por alguna razón no estás completamente satisfecho con tu CLEAN//ONE, simplemente contáctanos y te devolveremos el dinero completo. Sin preguntas, sin complicaciones.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -494,6 +554,17 @@
                         <p>El envío es GRATIS a todo el país. Los pedidos se procesan dentro de 24-48 horas y el tiempo de entrega estándar es de 3-7 días hábiles dependiendo de tu ubicación. Recibirás un código de rastreo por email para que puedas seguir tu pedido en tiempo real.</p>
                     </div>
                 </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>¿Cómo puedo pagar?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Aceptamos todas las tarjetas de crédito y débito (Visa, Mastercard, American Express), PSE, Nequi, Daviplata, y transferencia bancaria. Todos los pagos son 100% seguros con encriptación SSL.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -505,8 +576,16 @@
         </div>
         <div class="container">
             <div class="cta-content">
+                <div class="cta-urgency">
+                    <span class="urgency-icon">⏰</span>
+                    <span>La oferta termina pronto - ¡No te quedes sin el tuyo!</span>
+                </div>
                 <h2 class="cta-title">¿Listo para que tu Tecnología se vea como Nueva?</h2>
                 <p class="cta-subtitle">Únete a más de 10,000 personas que ya cambiaron la forma de limpiar su tecnología</p>
+                <div class="cta-price">
+                    <span class="cta-price-original">$29.900</span>
+                    <span class="cta-price-current">$19.900 COP</span>
+                </div>
                 <div class="cta-buttons">
                     <a href="#" class="btn-primary btn-large btn-glow">
                         <span>Compra Ahora - Envío Gratis</span>
@@ -574,6 +653,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- STICKY CTA FOR MOBILE -->
+    <div class="sticky-cta" id="stickyCta">
+        <div class="sticky-cta-content">
+            <div class="sticky-cta-price">
+                <span class="sticky-price">$19.900</span>
+                <span class="sticky-currency">COP</span>
+            </div>
+            <a href="#buy" class="btn-primary btn-full">Compra Ahora</a>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
