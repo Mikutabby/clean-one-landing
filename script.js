@@ -199,20 +199,24 @@ function initRecentPurchases() {
 }
 
 /* ============================================
-   COUNTDOWN TIMER
+   COUNTDOWN TIMER - Ends Sept 11, 2026
    ============================================ */
 function initCountdown() {
-    // Set countdown end date (7 days from now)
-    const now = new Date();
-    const endDate = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+    // Fixed end date: September 11, 2026 at midnight
+    const endDate = new Date('2026-09-11T00:00:00-05:00'); // Colombia timezone
     
     function updateCountdown() {
-        const currentTime = new Date();
-        const diff = endDate - currentTime;
+        const now = new Date();
+        const diff = endDate - now;
         
         if (diff <= 0) {
-            // Reset countdown
-            endDate.setTime(currentTime.getTime() + 7 * 24 * 60 * 60 * 1000);
+            // Offer ended
+            document.querySelectorAll('.countdown-value').forEach(el => {
+                el.textContent = '00';
+                el.style.color = '#ef4444';
+            });
+            const countdownTitle = document.querySelector('.countdown-title');
+            if (countdownTitle) countdownTitle.textContent = '¡Oferta finalizada!';
             return;
         }
         
