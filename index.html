@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.min.css">
     <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body>
@@ -25,7 +25,10 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <img src="images/logo.png" alt="CLEAN//ONE" class="nav-logo-img">
+                <picture>
+                    <source srcset="images/logo.webp" type="image/webp">
+                    <img src="images/logo.png" alt="CLEAN//ONE" class="nav-logo-img">
+                </picture>
             </a>
             <div class="nav-links">
                 <a href="#features">Características</a>
@@ -112,7 +115,10 @@
                 <div class="product-showcase">
                     <div class="product-glow"></div>
                     <div class="product-image">
-                        <img src="images/logo.png" alt="CLEAN//ONE - Kit de Limpieza Profesional" class="hero-logo">
+                        <picture>
+                            <source srcset="images/logo.webp" type="image/webp">
+                            <img src="images/logo.png" alt="CLEAN//ONE - Kit de Limpieza Profesional" class="hero-logo">
+                        </picture>
                     </div>
                     <div class="floating-tools">
                         <div class="tool tool-1">🖌️</div>
@@ -300,7 +306,10 @@
                 <div class="product-visual">
                     <div class="product-image-wrapper">
                         <div class="product-glow-large"></div>
-                        <img src="images/kit-limpieza.jpg" alt="CLEAN//ONE - Kit de Limpieza 7-en-1" class="product-main-image">
+                        <picture>
+                            <source srcset="images/kit-limpieza.webp" type="image/webp">
+                            <img src="images/kit-limpieza.jpg" alt="CLEAN//ONE - Kit de Limpieza 7-en-1" class="product-main-image">
+                        </picture>
                         <div class="floating-badge">7-en-1</div>
                     </div>
                 </div>
@@ -618,7 +627,10 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="#" class="nav-logo">
-                        <img src="images/logo.png" alt="CLEAN//ONE" class="footer-logo-img">
+                        <picture>
+                            <source srcset="images/logo.webp" type="image/webp">
+                            <img src="images/logo.png" alt="CLEAN//ONE" class="footer-logo-img">
+                        </picture>
                     </a>
                     <p class="footer-tagline">Limpieza profesional para tu tecnología</p>
                 </div>
@@ -665,6 +677,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.min.js"></script>
 </body>
 </html>
