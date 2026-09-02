@@ -360,49 +360,82 @@ function toggleFaq(button) {
 }
 
 /* ============================================
-   SCROLL ANIMATIONS - CSS Scroll-Driven
+   SCROLL ANIMATIONS - Section Transitions
    ============================================ */
 function initScrollAnimations() {
-    // Add scroll-reveal class to sections
+    // Animation types for different elements
+    const animationTypes = {
+        'section-label': 'scroll-reveal',
+        'section-title': 'scroll-reveal',
+        'problem-card': 'scroll-reveal',
+        'feature-card': 'scroll-reveal',
+        'review-card': 'scroll-reveal',
+        'faq-item': 'scroll-reveal',
+        'comparison-row': 'scroll-reveal',
+        'feature-item': 'scroll-reveal',
+        'product-details': 'scroll-reveal-right',
+        'product-visual': 'scroll-reveal-left',
+        'countdown-content': 'scroll-reveal-scale',
+        'stat-number': 'scroll-reveal-scale',
+        'stat-text': 'scroll-reveal'
+    };
+    
+    // Add scroll-reveal classes to sections
     const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
+    sections.forEach((section, sectionIndex) => {
+        // Add section entrance animation
+        section.classList.add('section-enter');
+        
         const children = section.querySelectorAll(
-            '.section-label, .section-title, .problem-card, .feature-card, ' +
-            '.product-card, .review-card, .faq-item, .comparison-row, ' +
-            '.feature-item, .stat-number, .stat-text, .product-details, ' +
-            '.product-visual, .countdown-content'
+            Object.keys(animationTypes).join(', ')
         );
+        
         children.forEach((child, index) => {
-            child.classList.add('scroll-reveal');
-            child.style.animationDelay = `${index * 0.08}s`;
+            // Get animation type from map or default
+            let animType = 'scroll-reveal';
+            for (const [selector, type] of Object.entries(animationTypes)) {
+                if (child.classList.contains(selector) || child.matches(selector)) {
+                    animType = type;
+                    break;
+                }
+            }
+            
+            child.classList.add(animType);
+            child.style.transitionDelay = `${index * 0.1}s`;
         });
     });
     
-    // Fallback for browsers without scroll-timeline
-    if (!CSS.supports('animation-timeline', 'scroll()')) {
-        initScrollFallback();
-    }
+    // Initialize intersection observer for scroll animations
+    initScrollObserver();
 }
 
-function initScrollFallback() {
+function initScrollObserver() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -80px 0px'
+    };
+    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                
+                // Add section-specific effects
+                if (entry.target.tagName === 'SECTION') {
+                    entry.target.classList.add('section-visible');
+                }
             }
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+    }, observerOptions);
+    
+    // Observe all scroll-reveal elements
+    document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale, .scroll-reveal-rotate, section').forEach(el => {
+        observer.observe(el);
     });
     
-    document.querySelectorAll('.scroll-reveal').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(40px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+    // Also observe sections for parallax effect
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
     });
 }
 
