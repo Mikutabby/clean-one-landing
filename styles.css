@@ -1755,14 +1755,15 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--space-md);
+    justify-content: center;
+    gap: var(--space-lg);
 }
 
 .sticky-cta-price {
     display: flex;
     align-items: baseline;
     gap: var(--space-sm);
+    flex-shrink: 0;
 }
 
 .sticky-price {
@@ -1774,6 +1775,11 @@ h1, h2, h3, h4, h5, h6 {
 .sticky-currency {
     font-size: 0.85rem;
     color: var(--text-secondary);
+}
+
+.sticky-cta .btn-primary {
+    width: auto;
+    white-space: nowrap;
 }
 
 /* ============================================
