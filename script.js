@@ -210,13 +210,16 @@ function initCountdown() {
         const diff = endDate - now;
         
         if (diff <= 0) {
-            // Offer ended
-            document.querySelectorAll('.countdown-value').forEach(el => {
-                el.textContent = '00';
-                el.style.color = '#ef4444';
-            });
-            const countdownTitle = document.querySelector('.countdown-title');
-            if (countdownTitle) countdownTitle.textContent = '¡Oferta finalizada!';
+            // Offer ended - update inline countdown
+            const cdDays = document.getElementById('cdDays');
+            const cdHours = document.getElementById('cdHours');
+            const cdMinutes = document.getElementById('cdMinutes');
+            const cdSeconds = document.getElementById('cdSeconds');
+            
+            if (cdDays) cdDays.textContent = '00';
+            if (cdHours) cdHours.textContent = '00';
+            if (cdMinutes) cdMinutes.textContent = '00';
+            if (cdSeconds) cdSeconds.textContent = '00';
             return;
         }
         
@@ -225,22 +228,16 @@ function initCountdown() {
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
         
-        const daysEl = document.getElementById('countdownDays');
-        const hoursEl = document.getElementById('countdownHours');
-        const minutesEl = document.getElementById('countdownMinutes');
-        const secondsEl = document.getElementById('countdownSeconds');
+        // Update inline countdown in hero
+        const cdDays = document.getElementById('cdDays');
+        const cdHours = document.getElementById('cdHours');
+        const cdMinutes = document.getElementById('cdMinutes');
+        const cdSeconds = document.getElementById('cdSeconds');
         
-        if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
-        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
-        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
-        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
-        
-        // Add urgency color when less than 1 day
-        if (days === 0) {
-            document.querySelectorAll('.countdown-value').forEach(el => {
-                el.style.color = '#ef4444';
-            });
-        }
+        if (cdDays) cdDays.textContent = String(days).padStart(2, '0');
+        if (cdHours) cdHours.textContent = String(hours).padStart(2, '0');
+        if (cdMinutes) cdMinutes.textContent = String(minutes).padStart(2, '0');
+        if (cdSeconds) cdSeconds.textContent = String(seconds).padStart(2, '0');
     }
     
     updateCountdown();
@@ -248,50 +245,10 @@ function initCountdown() {
 }
 
 /* ============================================
-   STOCK COUNTER
+   STOCK COUNTER (Removed - simplified page)
    ============================================ */
 function initStockCounter() {
-    const stockNumber = document.getElementById('stockNumber');
-    const stockBarFill = document.getElementById('stockBarFill');
-    if (!stockNumber || !stockBarFill) return;
-    
-    const initialStock = 150;
-    const reservedStock = Math.floor(Math.random() * 20) + 10; // 10-30 reserved
-    let currentStock = initialStock - reservedStock;
-    
-    // Update stock bar
-    function updateStockBar() {
-        const percentage = (currentStock / initialStock) * 100;
-        stockBarFill.style.width = percentage + '%';
-        
-        // Change color based on stock level
-        if (percentage < 20) {
-            stockBarFill.style.background = '#ef4444';
-        } else if (percentage < 50) {
-            stockBarFill.style.background = '#f59e0b';
-        } else {
-            stockBarFill.style.background = '#10b981';
-        }
-    }
-    
-    updateStockBar();
-    stockNumber.textContent = currentStock;
-    
-    // Simulate stock decreasing
-    setInterval(() => {
-        if (currentStock > 5) {
-            const decrease = Math.random() > 0.7 ? 1 : 0;
-            currentStock -= decrease;
-            stockNumber.textContent = currentStock;
-            updateStockBar();
-            
-            // Animate stock number
-            stockNumber.style.transform = 'scale(1.2)';
-            setTimeout(() => {
-                stockNumber.style.transform = 'scale(1)';
-            }, 200);
-        }
-    }, 30000); // Every 30 seconds
+    // Removed for simplified page - no stock counter element
 }
 
 /* ============================================

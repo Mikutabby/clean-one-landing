@@ -2195,6 +2195,190 @@ section {
     }
 }
 
+/* ============================================
+   SIMPLIFIED SECTIONS
+   ============================================ */
+
+/* Hero Product Image */
+.hero-product-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: var(--radius-lg);
+    filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.3));
+}
+
+/* Countdown Inline */
+.countdown-inline {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+}
+
+.countdown-label {
+    color: var(--text-secondary);
+}
+
+.countdown-mini {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--error);
+    letter-spacing: 0.05em;
+}
+
+.countdown-mini span {
+    font-size: 1.1rem;
+    margin-right: 2px;
+}
+
+/* Features Simplified */
+.features-grid-simplified {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
+}
+
+.feature-item-simplified {
+    text-align: center;
+    padding: var(--space-xl);
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+    transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.feature-item-simplified:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+}
+
+.feature-icon-simplified {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+}
+
+.feature-item-simplified h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+}
+
+.feature-item-simplified p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.features-more {
+    text-align: center;
+    margin-top: var(--space-xl);
+    padding: var(--space-md);
+    background: rgba(0, 212, 255, 0.05);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Reviews Simplified */
+.reviews-grid-simplified {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
+}
+
+.review-card-simplified {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid var(--border-subtle);
+    transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.review-card-simplified:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-4px);
+}
+
+.review-card-simplified .review-stars {
+    color: var(--warning);
+    font-size: 1rem;
+    margin-bottom: var(--space-md);
+}
+
+.review-card-simplified p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+}
+
+.review-card-simplified .review-author {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.review-card-simplified .review-author strong {
+    color: var(--text-primary);
+}
+
+/* FAQ Simplified */
+.faq-grid-simplified {
+    max-width: 800px;
+    margin: var(--space-2xl) auto 0;
+}
+
+/* Responsive - Simplified Sections */
+@media (max-width: 1024px) {
+    .features-grid-simplified {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .reviews-grid-simplified {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid-simplified {
+        grid-template-columns: 1fr;
+    }
+    
+    .reviews-grid-simplified {
+        grid-template-columns: 1fr;
+    }
+    
+    .countdown-inline {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .social-proof-content {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .social-proof-divider {
+        display: none;
+    }
+    
+    .sticky-cta {
+        display: block;
+    }
+}
+
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2rem;
@@ -2209,15 +2393,11 @@ section {
         width: 100%;
     }
     
-    .countdown-item {
-        min-width: 60px;
+    .countdown-mini {
+        font-size: 0.9rem;
     }
     
-    .countdown-value {
-        font-size: 1.5rem;
-    }
-    
-    .countdown-separator {
-        font-size: 1.5rem;
+    .countdown-mini span {
+        font-size: 0.95rem;
     }
 }
