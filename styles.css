@@ -1780,6 +1780,38 @@ h1, h2, h3, h4, h5, h6 {
 .sticky-cta .btn-primary {
     width: auto;
     white-space: nowrap;
+    border-radius: 50px;
+    padding: 14px 32px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+    background: var(--accent-gradient);
+    color: var(--bg-primary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.sticky-cta .btn-primary:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 30px rgba(0, 212, 255, 0.5);
+}
+
+.sticky-cta .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sticky-cta .btn-primary:hover::before {
+    opacity: 1;
 }
 
 /* ============================================
