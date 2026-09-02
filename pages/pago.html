@@ -271,6 +271,123 @@
             color: var(--success);
         }
 
+        /* Quantity Selector */
+        .quantity-section {
+            margin-bottom: 20px;
+        }
+
+        .quantity-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            overflow: hidden;
+            width: fit-content;
+        }
+
+        .qty-btn {
+            width: 44px;
+            height: 44px;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-btn:hover {
+            background: var(--bg-card-hover);
+            color: var(--accent-primary);
+        }
+
+        .qty-btn:active {
+            transform: scale(0.95);
+        }
+
+        .qty-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .qty-input {
+            width: 60px;
+            height: 44px;
+            background: transparent;
+            border: none;
+            border-left: 1px solid var(--border-subtle);
+            border-right: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            font-family: inherit;
+        }
+
+        .qty-input:focus {
+            outline: none;
+        }
+
+        .qty-input::-webkit-inner-spin-button,
+        .qty-input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .qty-input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .quantity-options {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .qty-option {
+            width: 40px;
+            height: 36px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .qty-option:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .qty-option.active {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            color: var(--bg-primary);
+            font-weight: 600;
+        }
+
+        .qty-option:active {
+            transform: scale(0.95);
+        }
+
         /* Payment Form */
         .payment-form {
             background: var(--bg-card);
@@ -855,15 +972,32 @@
                 <div class="order-item-info">
                     <div class="order-item-name">CLEAN//ONE Kit</div>
                     <div class="order-item-variant">Kit de Limpieza 7-en-1</div>
-                    <div class="order-item-price">$19.900 COP</div>
+                    <div class="order-item-price" id="unitPrice">$19.900 COP</div>
+                </div>
+            </div>
+
+            <!-- Quantity Selector -->
+            <div class="quantity-section">
+                <label class="quantity-label">Cantidad</label>
+                <div class="quantity-selector">
+                    <button type="button" class="qty-btn" id="qtyMinus">−</button>
+                    <input type="number" class="qty-input" id="qtyInput" value="1" min="1" max="10">
+                    <button type="button" class="qty-btn" id="qtyPlus">+</button>
+                </div>
+                <div class="quantity-options">
+                    <button type="button" class="qty-option" data-qty="1">1</button>
+                    <button type="button" class="qty-option" data-qty="2">2</button>
+                    <button type="button" class="qty-option" data-qty="3">3</button>
+                    <button type="button" class="qty-option" data-qty="4">4</button>
+                    <button type="button" class="qty-option" data-qty="5">5</button>
                 </div>
             </div>
 
             <div class="order-divider"></div>
 
             <div class="order-row">
-                <span>Subtotal</span>
-                <span>$19.900</span>
+                <span>Subtotal (<span id="qtyText">1</span> unidad)</span>
+                <span id="subtotalPrice">$19.900</span>
             </div>
             <div class="order-row shipping">
                 <span>Envío</span>
@@ -875,7 +1009,7 @@
             </div>
             <div class="order-row total">
                 <span>Total</span>
-                <span>$19.900 COP</span>
+                <span id="totalPrice">$19.900 COP</span>
             </div>
 
             <div class="order-secure">
@@ -903,6 +1037,9 @@
     </div>
 
     <script>
+        // Price per unit
+        const PRICE_PER_UNIT = 19900;
+        
         // DOM Elements
         const cardName = document.getElementById('cardName');
         const cardNumber = document.getElementById('cardNumber');
@@ -915,6 +1052,90 @@
         const payBtn = document.getElementById('payBtn');
         const paymentForm = document.getElementById('paymentForm');
         const successModal = document.getElementById('successModal');
+        
+        // Quantity Elements
+        const qtyInput = document.getElementById('qtyInput');
+        const qtyMinus = document.getElementById('qtyMinus');
+        const qtyPlus = document.getElementById('qtyPlus');
+        const qtyText = document.getElementById('qtyText');
+        const subtotalPrice = document.getElementById('subtotalPrice');
+        const totalPrice = document.getElementById('totalPrice');
+        const qtyOptions = document.querySelectorAll('.qty-option');
+        
+        // Format currency
+        function formatCurrency(amount) {
+            return '$' + amount.toLocaleString('es-CO');
+        }
+        
+        // Update prices based on quantity
+        function updatePrices() {
+            const qty = parseInt(qtyInput.value) || 1;
+            const subtotal = PRICE_PER_UNIT * qty;
+            
+            qtyText.textContent = qty;
+            qtyText.textContent = qty === 1 ? '1' : qty;
+            subtotalPrice.textContent = formatCurrency(subtotal);
+            totalPrice.textContent = formatCurrency(subtotal) + ' COP';
+            
+            // Update pay button text
+            const btnText = payBtn.querySelector('.btn-text');
+            if (btnText) {
+                btnText.innerHTML = `Pagar ${formatCurrency(subtotal)} COP
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>`;
+            }
+            
+            // Update minus button state
+            qtyMinus.disabled = qty <= 1;
+            qtyPlus.disabled = qty >= 10;
+            
+            // Update quick options
+            qtyOptions.forEach(opt => {
+                opt.classList.toggle('active', parseInt(opt.dataset.qty) === qty);
+            });
+        }
+        
+        // Quantity button clicks
+        qtyMinus.addEventListener('click', function() {
+            const current = parseInt(qtyInput.value) || 1;
+            if (current > 1) {
+                qtyInput.value = current - 1;
+                updatePrices();
+            }
+        });
+        
+        qtyPlus.addEventListener('click', function() {
+            const current = parseInt(qtyInput.value) || 1;
+            if (current < 10) {
+                qtyInput.value = current + 1;
+                updatePrices();
+            }
+        });
+        
+        // Quick quantity options
+        qtyOptions.forEach(opt => {
+            opt.addEventListener('click', function() {
+                qtyInput.value = this.dataset.qty;
+                updatePrices();
+            });
+        });
+        
+        // Manual input
+        qtyInput.addEventListener('input', function() {
+            let val = parseInt(this.value);
+            if (isNaN(val) || val < 1) val = 1;
+            if (val > 10) val = 10;
+            this.value = val;
+            updatePrices();
+        });
+        
+        qtyInput.addEventListener('blur', function() {
+            if (!this.value || parseInt(this.value) < 1) {
+                this.value = 1;
+                updatePrices();
+            }
+        });
 
         // Format card number with spaces (XXXX XXXX XXXX XXXX)
         cardNumber.addEventListener('input', function(e) {
@@ -1073,6 +1294,9 @@
                 successModal.classList.add('show');
             }, 2000);
         });
+        
+        // Initialize prices
+        updatePrices();
     </script>
 </body>
 </html>
