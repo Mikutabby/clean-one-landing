@@ -5,11 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLEAN//ONE - Kit de Limpieza Profesional 7-en-1</title>
     <meta name="description" content="Kit de limpieza profesional para tecnología. 7 herramientas especializadas. Envío gratis a todo Colombia. $19.900 COP.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="styles.min.css">
+    <link rel="preload" href="images/logo.webp" as="image">
+    <link rel="preload" href="images/kit-clean.webp" as="image">
     <link rel="icon" type="image/webp" href="images/logo.webp">
+    <style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg-primary:#070a10;--bg-secondary:#0c1018;--bg-card:#101622;--bg-card-hover:#151d2e;--bg-glass:rgba(16,22,34,.75);--text-primary:#eaf4ff;--text-secondary:#8ba4c0;--text-muted:#5a7088;--accent-primary:#00aaff;--accent-secondary:#0088dd;--accent-tertiary:#00ccee;--accent-gradient:linear-gradient(135deg,#0066ff 0%,#00aaff 40%,#00ccee 100%);--accent-gradient-text:linear-gradient(90deg,#00aaff 0%,#00ccee 30%,#0088ff 60%,#00aaff 100%);--border-subtle:rgba(100,160,220,.08);--border-accent:rgba(0,170,255,.3);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--ease-spring:cubic-bezier(.34,1.56,.64,1);--ease-smooth:cubic-bezier(.4,0,.2,1);--duration-fast:150ms;--duration-normal:250ms;--duration-slow:400ms;--font-primary:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;--space-xs:4px;--space-sm:8px;--space-md:16px;--space-lg:24px;--space-xl:32px;--space-2xl:48px;--space-3xl:64px;--space-4xl:96px}
+html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-primary);background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
+::selection{background:rgba(0,170,255,.35);color:var(--text-primary)}
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:var(--accent-gradient);z-index:10000;transition:width .1s ease-out}
+.cursor-trail{position:fixed;width:20px;height:20px;border-radius:50%;background:radial-gradient(circle,rgba(0,170,255,.4) 0%,transparent 70%);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s ease-out,opacity .3s;mix-blend-mode:screen}
+.particles-container{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.social-proof-bar{position:fixed;top:70px;left:0;right:0;z-index:999;background:rgba(7,10,16,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-subtle);padding:var(--space-sm) 0;transform:translateY(-100%);opacity:0;transition:all var(--duration-slow) var(--ease-smooth)}
+.social-proof-bar.visible{transform:translateY(0);opacity:1}
+.social-proof-content{max-width:1280px;margin:0 auto;padding:0 var(--space-lg);display:flex;align-items:center;justify-content:center;gap:var(--space-lg);font-size:.85rem}
+.live-viewers{display:flex;align-items:center;gap:var(--space-sm);color:var(--text-secondary)}
+.pulse-dot{width:8px;height:8px;background:#10b981;border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:.7}}
+.social-proof-divider{width:1px;height:16px;background:var(--border-subtle)}
+.recent-purchase{display:flex;align-items:center;gap:var(--space-sm);color:var(--text-secondary)}
+.purchase-icon{font-size:1rem}
+h1,h2,h3,h4,h5,h6{font-weight:700;line-height:1.15;letter-spacing:-.02em}
+.gradient-text{background:var(--accent-gradient-text);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s ease-in-out infinite;text-shadow:0 0 40px rgba(0,170,255,.3);filter:brightness(1.1)}
+@keyframes shimmer{0%,100%{background-position:0% center}50%{background-position:200% center}}
+.section-label{display:inline-flex;align-items:center;gap:var(--space-sm);font-family:var(--font-mono);font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:var(--accent-primary);padding:var(--space-sm) var(--space-md);background:rgba(0,170,255,.08);border:1px solid rgba(0,170,255,.15);border-radius:var(--radius-full);margin-bottom:var(--space-lg)}
+.section-title{font-size:clamp(2.25rem,5vw,3.5rem);margin-bottom:var(--space-lg)}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:var(--space-sm);padding:14px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;text-decoration:none;border-radius:var(--radius-md);border:none;cursor:pointer;overflow:hidden;transition:all var(--duration-normal) var(--ease-smooth)}
+.btn-primary{background:var(--accent-gradient);color:#fff;box-shadow:0 4px 20px rgba(0,170,255,.35);text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 8px 30px rgba(0,170,255,.45)}
+.btn-large{padding:18px 36px;font-size:1.1rem}
+.btn-full{width:100%}
+.btn-glow{position:relative}
+.btn-glow::after{content:'';position:absolute;inset:-2px;background:var(--accent-gradient);border-radius:inherit;z-index:-1;filter:blur(15px);opacity:.5;animation:glow-pulse 3s ease-in-out infinite}
+@keyframes glow-pulse{0%,100%{opacity:.4;filter:blur(15px)}50%{opacity:.7;filter:blur(20px)}}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:var(--space-md) 0;background:rgba(7,10,16,.5);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:all var(--duration-slow) var(--ease-smooth)}
+.navbar.scrolled{padding:var(--space-sm) 0;background:rgba(7,10,16,.9);border-bottom-color:var(--border-subtle);box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.nav-container{max-width:1280px;margin:0 auto;padding:0 var(--space-lg);display:flex;align-items:center;justify-content:space-between}
+.nav-logo{text-decoration:none}
+.nav-logo-img{height:45px;width:auto;transition:transform var(--duration-normal) var(--ease-spring)}
+.nav-logo:hover .nav-logo-img{transform:scale(1.05)}
+.nav-cta{padding:10px 20px;background:var(--accent-gradient);color:#fff!important;font-weight:600;font-size:.9rem;border-radius:var(--radius-sm);text-decoration:none;transition:all var(--duration-normal) var(--ease-spring)}
+.nav-cta:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 4px 20px rgba(0,170,255,.4)}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:140px 0 100px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-1}
+.hero-gradient{position:absolute;top:-30%;right:-10%;width:70%;height:70%;background:radial-gradient(circle,rgba(0,170,255,.15) 0%,rgba(0,102,255,.05) 40%,transparent 70%);filter:blur(80px);animation:gradient-drift 20s ease-in-out infinite}
+@keyframes gradient-drift{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(-5%,5%) scale(1.1)}50%{transform:translate(-10%,0%) scale(1)}75%{transform:translate(-5%,-5%) scale(.9)}}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse at center,black 20%,transparent 70%);animation:grid-scroll 30s linear infinite}
+@keyframes grid-scroll{0%{transform:translateY(0)}100%{transform:translateY(80px)}}
+.hero-container{max-width:1280px;margin:0 auto;padding:0 var(--space-lg);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4xl);align-items:center}
+.hero-content{position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:var(--space-sm);padding:var(--space-sm) var(--space-md);background:rgba(0,170,255,.1);border:1px solid rgba(0,170,255,.25);border-radius:var(--radius-full);font-size:.85rem;font-weight:500;color:var(--accent-primary);margin-bottom:var(--space-xl);animation:badge-in .8s var(--ease-spring) both}
+@keyframes badge-in{from{opacity:0;transform:translateY(20px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}
+.hero-title{font-size:clamp(2.75rem,6vw,4.5rem);font-weight:900;line-height:1.05;margin-bottom:var(--space-xl);letter-spacing:-.03em;animation:title-in 1s var(--ease-spring) .1s both}
+@keyframes title-in{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-tagline{font-family:var(--font-mono);font-size:.85rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--accent-primary);margin-bottom:var(--space-lg);padding:var(--space-sm) 0;border-top:1px solid rgba(0,170,255,.2);border-bottom:1px solid rgba(0,170,255,.2);display:inline-block;animation:tagline-in 1s var(--ease-spring) .15s both}
+@keyframes tagline-in{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+.hero-subtitle{font-size:1.2rem;color:var(--text-secondary);line-height:1.7;margin-bottom:var(--space-lg);max-width:520px;animation:subtitle-in 1s var(--ease-spring) .2s both}
+@keyframes subtitle-in{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-devices{display:flex;gap:var(--space-md);margin-bottom:var(--space-2xl);animation:devices-in 1s var(--ease-spring) .25s both}
+@keyframes devices-in{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.device-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1.5px solid rgba(0,170,255,.25);background:rgba(0,170,255,.06);color:var(--accent-primary);transition:all var(--duration-normal) var(--ease-spring);cursor:default}
+.device-icon:hover{background:rgba(0,170,255,.15);border-color:var(--accent-primary);transform:translateY(-3px) scale(1.1);box-shadow:0 4px 20px rgba(0,170,255,.3)}
+.device-icon svg{width:20px;height:20px}
+.hero-cta-group{display:flex;gap:var(--space-md);margin-bottom:var(--space-2xl);animation:cta-in 1s var(--ease-spring) .3s both}
+@keyframes cta-in{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-trust{display:flex;gap:var(--space-xl);animation:trust-in 1s var(--ease-spring) .4s both}
+@keyframes trust-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:.85rem;color:var(--text-secondary)}
+.trust-item svg{color:var(--accent-primary)}
+.hero-visual{position:relative}
+.product-showcase{position:relative;width:100%;max-width:500px}
+.product-glow{position:absolute;inset:-30%;background:radial-gradient(circle,rgba(0,170,255,.2) 0%,transparent 60%);filter:blur(50px);animation:glow-breathe 4s ease-in-out infinite}
+@keyframes glow-breathe{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.8;transform:scale(1.1)}}
+.product-image{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-logo-wrapper{text-align:center;margin-bottom:var(--space-lg);animation:logo-in 1s var(--ease-spring) .2s both}
+@keyframes logo-in{from{opacity:0;transform:scale(.8) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.hero-logo-img{width:100%;max-width:280px;height:auto;filter:drop-shadow(0 0 30px rgba(0,170,255,.25));animation:logo-float 6s ease-in-out infinite}
+@keyframes logo-float{0%,100%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-12px) rotate(1deg)}75%{transform:translateY(-8px) rotate(-1deg)}}
+.container{max-width:1280px;margin:0 auto;padding:0 var(--space-lg)}
+</style>
+    <link rel="stylesheet" href="styles.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles.min.css"></noscript>
 </head>
 <body>
     <!-- SCROLL PROGRESS BAR -->
@@ -394,5 +473,11 @@
     </div>
 
     <script src="script.min.js" defer></script>
+
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+    }
+    </script>
 </body>
 </html>
